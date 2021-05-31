@@ -3,10 +3,10 @@ package com.meet2025.dataring.controller;
 import com.meet2025.dataring.domain.DataCatalog;
 import com.meet2025.dataring.service.DataCatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author Roy Cao
@@ -25,5 +25,16 @@ public class DataCatalogController {
             throw new DataCatalogNoFoundException();
         }
         return dataCatalog;
+    }
+
+    @GetMapping
+    public List<DataCatalog> getAllDataCatalogs()
+    {
+        return dataCatalogService.getAllDataCatalogs();
+    }
+
+    @PostMapping
+    public DataCatalog createDatalog(@RequestBody DataCatalog dataCatalog){
+        return dataCatalogService.createDataCatalogService(dataCatalog);
     }
 }

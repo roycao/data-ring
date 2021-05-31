@@ -1,0 +1,2 @@
+INSERT INTO DATA_CATALOG(NAME,DESCRIPTION) VALUES ('Organization','Organization Info');
+    INSERT INTO DATA_CATALOG(NAME,DESCRIPTION) VALUES ('Financial','Bank Financial Info');
