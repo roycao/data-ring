@@ -1,5 +1,6 @@
 package com.meet2025.dataring.service;
 
+import com.google.common.collect.Lists;
 import com.meet2025.dataring.controller.DataCatalogNoFoundException;
 import com.meet2025.dataring.domain.DataCatalog;
 import com.meet2025.dataring.domain.DataCatalogRepository;
@@ -38,6 +39,6 @@ public class DataCatalogService {
 
     public List<DataCatalog> getAllDataCatalogs() {
         Iterable<DataCatalog> all = dataCatalogRepository.findAll();
-        return IterableUtils.toList(all);
+        return Lists.newArrayList(all);
     }
 }
