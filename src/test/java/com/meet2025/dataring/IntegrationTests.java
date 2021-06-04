@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
@@ -27,6 +29,13 @@ class IntegrationTests {
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody().getName()).isEqualTo("Organization");
         assertThat(response.getBody().getDescription()).isEqualTo("Organization Info");
+    }
+
+    @Test
+    public void getAllDataCatalog() {
+        ResponseEntity<DataCatalog[]> response = testRestTemplate.getForEntity("/datacatalogs",DataCatalog[].class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody().length).isGreaterThan(0);
     }
 
     @Test

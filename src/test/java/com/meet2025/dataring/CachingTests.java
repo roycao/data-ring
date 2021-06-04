@@ -39,6 +39,6 @@ public class CachingTests {
         dataCatalogService.getDataCatalog("organization");
         dataCatalogService.getDataCatalog("organization");
 
-        verify(dataCatalogRepository,times(1)).findByName("organization");
+        BDDMockito.then(dataCatalogRepository).should(times(1)).findByName("organization");
     }
 }

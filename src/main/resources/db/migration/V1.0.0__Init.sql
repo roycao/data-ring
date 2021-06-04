@@ -1,6 +1,2 @@
-CREATE TABLE "DATA_CATALOG"(
-    "ID" IDENTITY NOT NULL PRIMARY KEY,
-    "NAME" VARCHAR(255) NOT NULL,
-    "DESCRIPTION" VARCHAR(255)
-);
-ALTER TABLE DATA_CATALOG ADD CONSTRAINT UK_NAME UNIQUE("NAME");
+create table data_catalog (id bigint not null auto_increment,  name varchar(255), description varchar(1024), primary key (id)) engine=InnoDB ;
+alter table data_catalog add constraint UK_Name unique (name) ;
